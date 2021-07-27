@@ -1,0 +1,40 @@
+      <form [formGroup]="form" autocomplete="off">
+      <div class="p-12 overflow-x-hidden" fxFlex fxLayout="column">
+          <div fxLayout="row" fxLayoutAlign="space-between center">
+              <mat-form-field appearance="outline">
+                  <label>Nome</label>
+                  <input formControlName="name" matInput/>
+              </mat-form-field>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="space-between center">
+            <mat-form-field appearance="outline">
+                <label>CPF</label>
+                <input formControlName="cpf" placeholder="000.000.000-00" matInput>
+            </mat-form-field>
+        </div>
+          <div fxLayout="row" fxLayoutAlign="space-between center">
+              <mat-form-field appearance="outline">
+                  <label>Email</label>
+                  <input type="email" formControlName="email" matInput email/>
+                  <mat-error *ngIf="form.controls.email.invalid">
+                      <span *ngIf="form.controls.email.errors.required">O email é obrigatório.</span>
+                      <span *ngIf="form.controls.email.errors.email">O email informado é inválido.</span>
+                  </mat-error>
+              </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="space-between center">
+              <mat-form-field appearance="outline">
+                  <label>Telefone</label>
+                  <input formControlName="phone" placeholder="(DD) 0000-00000" matInput
+                         mask="(00) 0000-0000||(00) 00000-0000"/>
+              </mat-form-field>
+          </div>
+      </div>
+      <div>
+        <button mat-raised-button color="primary" (click)="onSubmit()">Save</button>
+        <button mat-raised-button (click)="onCancel()">Cancel</button>
+      </div>
+  </form>
+
+
+
